@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: gg131197
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: vota_prato_development
+
+
+test:
+  <<: *default
+  database: vota_prato_test
+
+production:
+  <<: *default
+  database: vota_prato_production
+  username: vota_prato
+  password: <%= ENV["VOTA_PRATO_DATABASE_PASSWORD"] %>
